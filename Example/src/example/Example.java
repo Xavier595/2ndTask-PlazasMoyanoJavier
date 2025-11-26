@@ -20,10 +20,21 @@ public class Example {
         // TODO code application logic here
         int[] table = new int[5];
         Random random = new Random();
+
         for (int i = 0; i < table.length; i++) {
             table[i] = random.nextInt(100);
         }
         System.out.println("Random values: " + Arrays.toString(table));
+        for (int i = 0; i < table.length - 1; i++) {
+            for (int j = 0; j < table.length - 1; j++) {
+                if (table[j] > table[j + 1]) {
+                    int temp = table[j];
+                    table[j] = table[j + 1];
+                    table[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println("Sorted values: " + Arrays.toString(table));
     }
 
 }
