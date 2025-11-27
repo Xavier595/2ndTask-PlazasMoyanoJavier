@@ -24,7 +24,6 @@ public class Example {
             table[i] = random.nextInt(100);
         }
         System.out.println("Random values: " + Arrays.toString(table));
-        // Bubble Sort (simple version inside main)
         for (int i = 0; i < table.length - 1; i++) {
             for (int j = 0; j < table.length - 1; j++) {
                 if (table[j] > table[j + 1]) {
