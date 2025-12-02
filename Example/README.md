@@ -89,10 +89,16 @@ Different previous versions of the code were checked out using the git checkout 
 ```
 git checkout <commit-id>
 ```
-
+* The command git checkout cc7cf2b was executed to switch to the commit where only random values were added (before sorting).
 ![Checkout – part 1](m.png)
+
+* The IDE confirms this state; the code for sorting is missing, showing only the random generation logic.
 ![Checkout – part 2](m1.png)
+
+* The command git checkout main was used to return to the latest version of the project.
 ![Checkout – part 3](m2.png)
+
+* The IDE shows that the sorting logic has reappeared, confirming we are back to the present state.
 ![Checkout – part 4](m3.png)
 
 ## n) Make changes without committing
@@ -106,10 +112,18 @@ The git revert command was used to reverse past changes by creating a new commit
 ```
 git revert <commit-id>
 ```
+* Initially, the revert failed due to uncommitted local changes. The command git restore . was used to clean the workspace, followed by git revert <commit-id> which then executed successfully.
 
 ![Revert – part 1](o.png)
+
+* This screenshot illustrates the state of the code before the revert.
 ![Revert – part 2](o1.png)
+
+* The default text editor opened automatically to confirm the commit message for the revert.
 ![Revert – part 3](o2.png)
+
+* The final verification in NetBeans shows that the array is back to its static initialization and the sorting logic has been removed by the revert operation.
+
 ![Revert – part 4](o3.png)
 
 ## p) Push to remote
@@ -125,6 +139,7 @@ git push
 The local copy of the repository was removed to simulate a fresh clone operation.
 
 ![Deleted – part 1](r.png)
+
 ![Deleted – part 2](r1.png)
 
 ## s) Clone
@@ -143,6 +158,7 @@ git checkout main
 ```
 
 ![Tag – part 1](t.png)
+
 ![Tag – part 2](t1.png)
 
 ## u) Create new branch
@@ -153,6 +169,7 @@ git branch new-branch
 ```
 
 ![Branch – part 1](u.png)
+
 ![Branch – part 2](u1.png)
 
 ## w) Switch to branch
@@ -163,7 +180,6 @@ git checkout new-branch
 ```
 
 ![Switch – part 1](w.png)
-![Switch – part 2](w1.png)
 
 ## x) Improve the code in the branch
 The sorting method was improved inside the feature branch, following good development practices.
@@ -179,12 +195,15 @@ git merge new_branch
 ```
 
 ![Merge – part 1](y.png)
+
+* The GitHub Branches view confirms the status of the branches after the operation.
 ![Merge – part 2](y1.png)
 
 ## z) Give access to a friend
 Repository access was granted to another user on GitHub, enabling collaboration.
 
 ![Access – part 1](z.png)
+
 ![Access – part 2](z_1.png)
 
 ## z1) Create a conflict
@@ -195,10 +214,20 @@ A deliberate conflict was created by editing the same lines of code in two diffe
 ## z2) Resolve the conflict and push
 The merge conflict was manually resolved in NetBeans. Afterwards, the fix was committed and pushed successfully.
 
+* The git pull command triggered a conflict, indicated by the message "CONFLICT (content): Merge conflict in...".
 ![Resolved – part 1](z2.png)
+
+* In NetBeans, the conflict markers (<<<<<<<, =======, >>>>>>>) appeared, highlighting the clashing lines between the local and remote versions.
+
 ![Resolved – part 2](z2_1.png)
+
+* The code was manually edited to keep the desired lines and remove the Git markers.
 ![Resolved – part 3](z2_2.png)
+
+* The resolved file was staged (git add) and committed (git commit) to finalize the fix, followed by a successful git push.
 ![Resolved – part 4](z2_3.png)
+
+* The GitHub history confirms the entire sequence, showing the conflicting commits and the final "Fix" commit.
 ![Resolved – part 5](z2_4.png)
 
 ## z3) Send repo URL and report to teacher
